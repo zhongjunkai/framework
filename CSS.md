@@ -98,7 +98,8 @@ position: 定义渐变的位置
 		bottom: 设置底部为径向渐变圆心的纵坐标值
 	2. 自定义位置
 		percentage1、percentage2
-			
+			percentage1： 距离左边的距离
+			percentage2： 距离顶部的距离
 ```
 
 
