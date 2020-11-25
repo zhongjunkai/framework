@@ -22,7 +22,7 @@
 
      -  **块级元素** 
 
-        <address>、<center>、<h1>~<h6>、<br>、<p>、<pre>、<ul>、<ol>、<dl>、<table>、<div>、<form>
+        ```<address>、<center>、<h1>~<h6>、<br>、<p>、<pre>、<ul>、<ol>、<dl>、<table>、<div>、<form>```
 
   2. **diaplay的block、inline和inline-block的区别**
 

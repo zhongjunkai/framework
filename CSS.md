@@ -27,6 +27,12 @@
 
 ##### 		2.3 渐变
 
+###### 		2.3.1 线性渐变linear-gradient()
+
+###### 		2.3.2 径向渐变radial-gradient()
+
+###### 		2.3.3 循环渐变repeating-radial-gradient（）/ repeating-linear-gradient（）
+
 ##### 		2.4 圆角border-radius
 
 ##### 		2.5 阴影shadow
