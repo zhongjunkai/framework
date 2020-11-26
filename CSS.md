@@ -102,31 +102,224 @@ position: 定义渐变的位置
 			percentage2： 距离顶部的距离
 ```
 
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>线性渐变与径向渐变</title>
+    <style type="text/css">
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to left, red, blue);
+            float: left;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(red, blue);
+            float: left;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to right bottom, red, blue);
+            float: left;
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(60deg, red, blue);
+            float: left;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(red 40%, blue 70%);
+            float: left;
+        }
+
+        .box6 {
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(circle, red 30%, yellow 50%, blue 80%);
+            float: left;
+        }
+
+        .box7 {
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(circle, white, blue);
+            float: left;
+        }
+
+        .box8 {
+            width: 100px;
+            height: 100px;
+            background-image: repeating-radial-gradient(circle, yellow, green 10%);
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+    <div class="box8"></div>
+</body>
+
+</html>
+```
+
 
 
 ###### 		2.3.3 循环渐变repeating-radial-gradient（）/ repeating-linear-gradient（）
+
+```tex
+/**最重要的是限制渐变的大小（用起点），以使其可以循环**/
+background-image: repeating-linear-gradient(to direction/angle, color1 [percentage1], color2 [percentage2], ..., colorn [percentagen])
+
+background-image: repeating-radial-gradient([shape size at position], start-color, ..., last-color);
+```
+
+```css
+.box8 {
+    width: 100px;
+    height: 100px;
+    backgeound-image: repeating-gradial-gradient(circle, yellow, green 10%);
+}
+```
+
+
 
 ##### 		2.4 圆角border-radius
 
 ###### 		2.4.1 border-radius: 每个角内切圆半径
 
+```tex
+/**
+语法：
+两个值： 左上右下  右上左下
+四个值： 左上 右上 右下 左下
+**/
+```
+
+```css
+/**圆（容器宽和高相同）**/
+border-radius: 50%;
+```
+
+```css
+/**椭圆（容器宽是高的两倍）**/
+border-radius: wisth / height;
+```
+
+```css
+/**上半圆（容器宽是高的两倍）**/
+border-radius： height height 0 0 ;
+```
+
+```css
+/**侧半圆（容器宽是高的两倍）**/
+border-radius:width 0 0 width;
+```
+
+
+
 ###### 		2.4.2 border （top/bottom/left/right）- radius : 针对某一个角
+
+```css
+/**
+语法：
+适合用来标识不规则的圆形
+两个值： 水平半径  垂直半径
+一个值： 水平半径和垂直半径为指定值
+**/
+```
+
+
 
 ##### 		2.5 阴影shadow
 
 ###### 		2.5.1 text-shadow: 文字阴影
 
+```css
+/**语法**/
+text-shadow (x,y,blur,color1, x2,y2,blur, color2,....)
+	x: 向右移动x个单位
+	y: 向下移动y个单位
+	blur: 模糊度，单位px，值越大越模糊
+	color: 不写阴影颜色默认和字体颜色相同，可以改其值
+```
+
+
+
 ###### 		2.5.2 box-shadow: 盒子阴影
+
+```css
+/**语法**/
+box-shadow: (x y blur spread color [inset], x2 y2 blur2 spread2 color2 [inset])
+	x: 阴影向左移动x个单位
+	y: 阴影向下移动y各单位
+	blur: 模糊度，值越大越模糊，单位px
+	spread:增大模糊边界之前实心颜色面积，值越大，面积越大
+	color: 颜色
+	inset: 内阴影，不写默认为外阴影，写了outset无效果
+```
+
+
 
 ##### 		2.6 透明度opacity
 
 ###### 		2.6.1 方式1： rgba()
 
+```css
+rgba(0~255,0~255,0~255,0~1)
+```
+
+
+
 ###### 		2.6.2 方法2： opacity
+
+```css
+IE: filter: alpha(opacity="value")
+
+0~100
+```
+
+```css
+现代浏览器：opacity
+
+0(透明)~ 0.5(半透明) ~ 1(不透明)
+```
+
+
 
 ###### 		2.6.3 区别
 
+```css
+方式1： 可以让指定的样式透明，而不影响其他样式
+方式2： 占空间，且所有子内容都会透明
+```
+
+
+
 #### 三、动态样式
+
+##### 3.1 transition过渡
+
+3.1.1 
 
 #### 四、布局
 
