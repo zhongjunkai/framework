@@ -539,6 +539,24 @@ transition-origin: x y [z 3D的时候才需要设置z]
 设置动画的名字（自定义的名字）
 ```
 
+###### **3.3.2 animation-duration** 
+
+```css
+动画的持续时间
+```
+
+###### **3.3.3 animation-delay** 
+
+```css
+动画的延迟时间
+```
+
+###### **3.3.4 animation-iteration-count**
+
+```css
+动画的重复次数，默认值就是1，单位是数值，infinite无限次数
+```
+
 
 
 #### 四、布局
