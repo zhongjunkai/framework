@@ -317,9 +317,229 @@ IE: filter: alpha(opacity="value")
 
 #### 三、动态样式
 
-##### 3.1 transition过渡
+##### **3.1 transition过渡**
 
-3.1.1 
+**3.1.1 transtion-property: 规定设置过渡效果的css属性的名称**
+
+```css
+如果要全部属性则用all
+```
+
+###### **3.1.2 transition-duration: 规定完成过度动画效果需要的时间**
+
+```css
+单位： 秒/毫秒
+```
+
+###### **3.1.3 transition-delay: 规定过渡效果延迟时间**
+
+```css
+单位： 秒/毫秒
+延迟则数值为正，提前则为负
+如果是提前的话，当要开始的时候直接变为当前秒数的样式，没有延迟。就是说，如果提前两秒的话，那么当过度开始的时候直接变为两秒的时候应该有的样式。
+```
+
+###### **3.1.4 transition-timing-function: 规定速度效果的速度曲线**
+
+```css
+linear: 匀速
+ease: 默认值，速度逐渐慢下来
+ease-in: 加速
+ease-out: 减速
+cubic-bezier: 先加速后减速
+```
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>过渡动画</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition-property: all;
+            transition-delay: -1s;
+            transition-duration: 3s;
+            transition-timing-function: ease-in;
+            /*复合写法 transition: all 3s -1s ease-in; */
+        }
+        div:hover {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+```
+
+###### **3.1.5 符合样式**
+
+```css
+transition: 属性  完成时间  延迟时间  速度曲线
+	属性和曲线不写就默认all 和 linear
+	transition 属性不能添加到hover伪类上
+```
+
+###### **3.1.6 常常与transition有联系的样式**
+
+```css
+opacity 透明度
+shadow  阴影
+渐变
+transform 变形
+```
+
+###### **3.1.7 触发方式**
+
+```css
+1、 hover / focus 伪类定义新的样式，移入移出或聚焦造成过渡动画效果
+2、 js操作该对象的样式
+```
+
+##### **3.2 transform 变换**
+
+###### **3.2.1 translate 位移**
+
+```css
+/***语法：***/
+translate(valueX, valueY)  x,y方向上都有位移
+translate(value)  默认一个值是x方向上的位移
+translateX(value)
+translateY(value)
+translateZ(value)
+```
+
+###### **3.2.2 scale 缩放**
+
+```css
+/***语法（单位： 比例值）***/
+scale(value)  写一个值就是宽高都缩放
+scaleX(x) 在x轴缩放x倍， -1的话会左右翻转（镜像翻转）
+scaleY(y)
+scaleZ(z)
+```
+
+###### **3.2.3 rotate旋转**
+
+```css
+/***语法：（单位：角度deg）***/
+rotate(value deg)  和 rotateZ是相同的效果
+roatetX(x deg)  正值沿着x轴向上翻转，负值沿着x轴向左翻转
+rotateY(y deg)
+rotateZ(z deg)
+```
+
+###### **3.2.4 skew 斜切**
+
+```css
+/**单位  角度deg**/
+skew(value deg)  与skewZ效果相同
+skew(x deg, y deg) skewX与skewY 效果都有
+skewX(x deg)  水平方向保持不变。垂直方向正值向左倾斜，负值向右倾斜
+skewY(y deg)
+```
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>位移与缩放</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: skew(30deg);
+            float: left;
+            margin: 60px;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: skewY(30deg);
+            float: left;
+            margin: 50px;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+            margin: 50px;
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+            transform: translate(100px) skew(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+
+</html>
+```
+
+###### **3.2.5 transform-origin: 基点的位置（变形的基准位置）**
+
+```css
+transition-origin: x y [z 3D的时候才需要设置z]
+```
+
+###### **3.2.6 变形操作只能添加给块元素，但是不能添加给行内元素**
+
+```css
+行内元素设置width和height无效，变形操作的底层逻辑是操作的都是对象的宽和高
+```
+
+###### **3.2.7 符合写法**
+
+```css
+符合写法： 可以同时添加多个操作对象
+例： transform: translate(100px )  skew(45deg)  scale(2)  rotate(90deg)
+```
+
+###### **3.2.8 执行顺序(后写的先执行)**
+
+```css
+先写的translate不会收到后面的变形操作的影响
+后写的translate()会收到先写的rotate、scale、skew的影响
+	translate() 会位移（位移  缩放） 的长度
+	translate() 会在rotate的角度的方向位移相应的长度，再进行旋转
+	translate() 会在skew的角度的方向位移相应的长度，在进行斜切
+```
+
+##### **3.3 animation 动画**
+
+###### **3.3.1 animation-name**
+
+```css
+设置动画的名字（自定义的名字）
+```
+
+
 
 #### 四、布局
 
