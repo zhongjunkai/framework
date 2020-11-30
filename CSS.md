@@ -557,9 +557,64 @@ transition-origin: x y [z 3D的时候才需要设置z]
 动画的重复次数，默认值就是1，单位是数值，infinite无限次数
 ```
 
+**3.3.5 animation-timing-function**
+
+```css
+/***动画的运动方式***/
+linear: 匀速
+ease: 默认值，速度逐渐慢下来
+ease-in: 加速
+ease-out: 减速
+cubic-bezier: 先加速后减速
+```
+
+###### **3.3.6 animation-fill-mode**
+
+```css
+规定动画播放的之前或之后，期动画效果是否可见
+none: (默认值) 在运动结束后回到初始位置，在延迟的情况下，让0%在延迟后生效
+backwards： 在延迟的情况下，让0%在延迟前生效
+forwards: 在运动结束后，停在技术位置
+both： backwards 和 forwards同时生效
+
+注： 运动结束后，默认停在初始位置
+```
+
+**3.3.7 animation-direction**
+
+```css
+属性定义是否应该轮流反向播放动画
+alternate： 一次正向（0%~100%）, 一次反向(100% - 0%)
+reverse: 永远都是反向，从100% - 0%
+normal: （默认值） 永远都是正向的，从0% - 100%
+```
+
+**3.3.8 复合写法**
+
+```css
+animation: name duration delay count function mode direction
+```
+
+**3.3.9 keyframe 定义动画过程**
+
+```css
+animation 定义在元素内，动画过程要写在@keyframe内
+```
+
+**3.3.10 引入animate.css**
+
+```css
+工具animate.css,引入各种动画样式
+
+```
+
 
 
 #### 四、布局
+
+**4.1 分栏布局**
+
+
 
 ### 2.  **清除浮动的几种方法**
 
