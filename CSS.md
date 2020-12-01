@@ -686,7 +686,82 @@ animation 定义在元素内，动画过程要写在@keyframe内
 </html>
 ```
 
+##### **4.2 移动端之百分比布局/流式布局**
 
+###### **4.2.1 应用场景： 应对窗口大小缩放的方案**
+
+###### **4.2.2 特点： 高度固定，宽度自适应（百分比）**
+
+###### **4.2.3 设计细节**
+
+```css
+对于大的轮播图等，宽度100%自适应
+对于小图标或者文本，一般都是固定宽高大小
+对于大屏幕来说，有些布局元素会显得很长。这时候需要将外边距固定
+先写固定布局，在创建流式布局
+```
+
+###### **4.2.4 流式图片**
+
+```css
+宽度限定为容器的最大宽度，max-width： 100%
+如果要有外边距：则样式应该是
+	box-sizing: border-box
+	margin: 单位百分比
+```
+
+###### **4.2.5 流式排版**
+
+```css
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .leftColumn {
+            width: 33.3%;
+            float: left;
+            background-color: yellow;
+            height: 300px;
+        }
+
+        .rightColumn {
+            width: 66.7%;
+            height: 300px;
+            background-color: #7FFF9B;
+            float: left;
+        }
+
+        .container {
+            width: 90%;
+            height: 300px;
+            margin: 0 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftColumn">left</div>
+        <div class="rightColumn">right</div>
+    </div>
+</body>
+
+</html>
+```
+
+##### **4.2 响应式布局**
+
+###### **4.2.1 同一套页面可以兼容不同分辨率的设备**
+
+###### **4.2.2 设计原则**
 
 
 
