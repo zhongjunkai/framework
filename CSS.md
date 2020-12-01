@@ -557,7 +557,7 @@ transition-origin: x y [z 3D的时候才需要设置z]
 动画的重复次数，默认值就是1，单位是数值，infinite无限次数
 ```
 
-**3.3.5 animation-timing-function**
+###### **3.3.5 animation-timing-function**
 
 ```css
 /***动画的运动方式***/
@@ -580,7 +580,7 @@ both： backwards 和 forwards同时生效
 注： 运动结束后，默认停在初始位置
 ```
 
-**3.3.7 animation-direction**
+###### **3.3.7 animation-direction**
 
 ```css
 属性定义是否应该轮流反向播放动画
@@ -589,19 +589,19 @@ reverse: 永远都是反向，从100% - 0%
 normal: （默认值） 永远都是正向的，从0% - 100%
 ```
 
-**3.3.8 复合写法**
+###### **3.3.8 复合写法**
 
 ```css
 animation: name duration delay count function mode direction
 ```
 
-**3.3.9 keyframe 定义动画过程**
+###### **3.3.9 keyframe 定义动画过程**
 
 ```css
 animation 定义在元素内，动画过程要写在@keyframe内
 ```
 
-**3.3.10 引入animate.css**
+###### **3.3.10 引入animate.css**
 
 ```css
 工具animate.css,引入各种动画样式
@@ -612,7 +612,81 @@ animation 定义在元素内，动画过程要写在@keyframe内
 
 #### 四、布局
 
-**4.1 分栏布局**
+##### **4.1 分栏布局**
+
+###### **4.1.1 column-count**
+
+```css
+分栏的个数
+```
+
+###### **4.1.2 column-width**
+
+```css
+分栏的宽度
+```
+
+###### **4.1.3 column-gap**
+
+```css
+分栏的间距
+```
+
+###### **4.1.4 column-rule**
+
+```css
+分栏的边线  和边框语法一样
+```
+
+###### **4.1.5 column-span**
+
+```css
+合并分栏的个数    全部则为all
+```
+
+###### **4.1.6 em才是首选单位**
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>column布局</title>
+    <style type="text/css">
+        .box1 {
+            width: 800px;
+            height: 400px;
+            border: 1px black solid;
+            margin: 30px auto;
+            column-count: 4;
+            column-width: 100px;
+            column-rule: 1px solid gray;
+            column-gap: 20px;
+        }
+
+        .box1 h2 {
+            column-span: all;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <h2>CSDN标题</h2>
+        <p>中国专业IT社区CSDN (Chinese Software Developer Network) 创立于1999年，致力于为中国软件开发者提供知识传播、在线学习、职业发展等全生命周期服务。</p>
+        <p>旗下拥有：专业的中文IT技术社区： CSDN.NET；移动端开发者专属APP： CSDN
+            APP、CSDN学院APP；新媒体矩阵微信公众号：CSDN资讯、程序人生、GitChat、CSDN学院、AI科技大本营、区块链大本营、CSDN云计算、GitChat精品课、人工智能头条、CSDN企业招聘.. </p>
+        <p>涵盖CSDN资讯、AI科技大本营、区块链大本营、GitChat、GitChat精品课、程序人生、人工智能头条、Python大本营、CSDN学院等，覆盖各个专业技术领域，为IT开发者和从业人员提供资讯、学习、交流、互动和分享平台。
+        </p>
+        <p>CSDN学院是CSDN旗下的在线</p>
+    </div>
+</body>
+
+</html>
+```
+
+
 
 
 
