@@ -786,8 +786,9 @@ and： 和
 not： 非
 min-width： 最小宽度，用于给桌面浏览器调整窗口
 max-width： 最大宽度，用于给桌面浏览器调整窗口，常用
-min-device-width: 设备最小宽度，适应不同浏览器视口大小
-max-device-width: 
+min-device-width: 设备最小宽度，适应不同移动浏览器视口大小
+max-device-width: 设备最大宽度，适应不同移动浏览器视口大小
+
 ```
 
 
