@@ -1032,19 +1032,76 @@ orientation: 竖屏还是横屏，常用
 
 ### 3. **盒子模型**
 
+#### **3.1 盒子模型种类**
+
+- **分别是ie盒子模型和标准W3C 盒子模型**
+- 两种模型对height和width的计算方式不同，可以通过CSS属性box-sizing来对这两种标准进行切换，当值为content-box时为标准盒子模型，值为border-box时为IE盒子模型。
+
+```css
+盒子边框
+border： border-width | border-style | border-color
+```
+
+```css
+圆角
+border-radius: 左上角  右上角 右下角 左下角
+```
+
+```css
+内边距（padding）
+
+```
+
+```css
+外边距（margin）
+盒子居中
+1. 必须是块级元素 2. 左右边距 都设置为auto （margin：100px auto）
+```
+
+```css
+margin 塌陷问题
+在标准文档流中，竖直方向的margin会出现叠加的现象（水平方向不会塌陷），两个margin紧挨着，中间没有border或者padding   Margin直接解除就产生了合并。
+表现为较大的margin会覆盖掉较小的margin，竖直方向的两个盒子之间只有一个较大的margin，这就是margin塌陷现象。
+```
+
+- 给父元素添加透明的边框，至少添加上border-top:1px solid transparent;
+- 给父元素添加padding-top：1px
+- 给父元素添加overflow： hidden
+- 给父元素添加position: absolute
+- 给父元素添加position: fixed;
+- 给父元素添加display: inline-block
+
+当margin、padding、border都为0时，两种盒子模型没有区别。
+
 ### 4. **Flex布局**
+
+
 
 ### 5. **BFC原理**
 
+
+
 ### 6. **position定位**
+
+
 
 ### 7. **水平垂直居中的几种方式**
 
+
+
 ### 8. **CSS优先级权重**
+
+
 
 ### 9. **transition / animation 区别**
 
+
+
 ### 10. **border: none 和 border:0 的区别**
 
+
+
 ### 11. **diaplay: none / visibility   hidden / opacity:0 的区别**
+
+
 
