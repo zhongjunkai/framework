@@ -1075,6 +1075,53 @@ margin 塌陷问题
 
 ### 4. **Flex布局**
 
+布局的传统解决方案，基于盒状模型，依赖`display` 属性 + `position`属性+ `float`属性。他对于那些特殊布局非常不方便，比如：垂直居中就不容易实现。
+
+#### **4.1 Flex 布局是什么？**
+
+flex布局，意味“弹性布局”，用来为盒状模型提供最大的灵活性。
+
+任何一个容器都能指定为flex布局
+
+```css
+.box {
+    display: flex;
+}
+```
+
+行内元素也可以使用flex布局
+
+```css
+.box {
+    display: inline-flex;
+}
+```
+
+注意：设置为flex布局后，子元素的`float`、`clear`和`vertical-align`属性将失效。
+
+#### **4.2 基本概念**
+
+采用flex布局的元素，成为flex容器。他的所有子元素自动成为容器里的成员，成为flex项目。
+
+容器默认存在两根轴：水平的主轴和垂直的交叉轴。主轴的开始位置（与边框的交叉点）叫做`main start`，结束的位置叫做`main end`; 交叉轴开始的位置叫做`cross start`，结束位置叫做`cross end`。
+
+项目默认沿主轴排列。单个项目占据的主轴空间叫做`main size`，占据的交叉轴空间叫做`cross size`。
+
+#### **4.3 容器的属性**
+
+以下6个属性设置在容器上。
+
+```css
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+```
+
+##### **4.3.1 flex-direction 属性**
+
 
 
 ### 5. **BFC原理**
