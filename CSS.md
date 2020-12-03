@@ -787,8 +787,86 @@ not： 非
 min-width： 最小宽度，用于给桌面浏览器调整窗口
 max-width： 最大宽度，用于给桌面浏览器调整窗口，常用
 min-device-width: 设备最小宽度，适应不同移动浏览器视口大小
-max-device-width: 设备最大宽度，适应不同移动浏览器视口大小
+max-device-width: 设备最大宽度，适应不同移动浏览器视口大小,常用
+orientation: 竖屏还是横屏，常用
+	portrait：竖屏
+	landscape: 横屏
+<link>: link标签满足某条件才生效
+```
 
+###### **4.2.4 防止样式非意外叠加（边界值问题）**
+
+```css
+@media (not max-width: 600px) and (max-width:700px);
+// 在（600，700] px之间（方法1）
+
+@media (max-width: 600px) and (max-width: 699.99px)
+// 在600-699.99px之间（方法2）
+```
+
+###### **4.2.5 替换整个样式表**
+
+```css
+当样式修改不多时仅仅用@media执行即可
+修改样式较多时需要创建一个新的样式表便于管理，link标签中使用media属性查询
+```
+
+```html
+<link rel="stylesheet" media="screen and (max-device-width:480px)" href="iphone.css"/>
+```
+
+###### **4.2.6 识别特定设备**
+
+```css
+/***像素比（物理像素除以css像素）-webkit-min-device-pixel-ratio  **/
+
+-webkit-min-device-pixel-ratio 为1.0：
+	1. 所有非Retina的mac
+	2. 所有非Retina的IOS设备
+	3. Acer Iconia A500
+	4. Samsung Galaxy Tab 10.1
+	5. Samsung Galaxy S
+
+-webkit-min-device-pixel-ratio为1.3：
+	1. Google Nexus 7
+
+-webkit-min-device-pixel-ratio为1.5：
+	1.Google Nexus S
+	2.Samsung Galaxy S II
+	3.HTC Desire
+	4.HTC Desire HD
+	5.HTC Incredible S
+	6.HTC Velocity
+	7.HTC Sensation
+
+-webkit-min-device-pixel-ratio为2.0：
+	1.iPhone 4
+	2.iPhone 4S
+	3.iPhone 5
+	4.iPad (3rd generation)
+	5.iPad 4
+	6.所有Retina displays 的MAC
+	7.Google Galaxy Nexus
+	8.Google Nexus 4
+	9.Google Nexus 10
+	10.Samsung Galaxy S III
+	11.Samsung Galaxy Note II
+	12.Sony Xperia S
+	13.HTC One X  
+```
+
+```css
+@media screen and ( min-width: 212px){/*213px显示屏样式 LG Optimus One*/}
+@media screen and ( min-width: 319px){/*320px显示屏样式 苹果4/4S/5C/5S黑莓Z30 */}
+@media screen and ( min-width: 359px){/*360px显示屏样式 索尼Z1*/}
+@media screen and ( min-width: 383px){/*384px显示屏样式 黑莓Z10 谷歌 Nexus 6 LG Optimus G*/}
+@media screen and ( min-width: 399px){/*399px显示屏样式 三星galaxyNote*/}
+@media screen and ( min-width: 414px){/*414px显示屏样式 苹果6plus*/}
+@media screen and ( min-width: 423px){/*424px显示屏样式 LG 4X */}
+@media screen and ( min-width: 479px){/*480px显示屏样式 索尼MT27i Xperia sola*/}
+@media screen and ( min-width: 539px){/*640px显示屏样式 摩托罗拉Droid3/4/Razr Atrix 4g*/}
+@media screen and ( min-width: 639px){/*640px显示屏样式*/}
+@media screen and ( min-width: 640px){/*640px以上显示屏样式*/}
 ```
 
 
