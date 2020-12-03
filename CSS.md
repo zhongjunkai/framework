@@ -873,6 +873,163 @@ orientation: 竖屏还是横屏，常用
 
 ### 2.  **清除浮动的几种方法**
 
+```css
+清除浮动主要是为了解决，父元素因为子元素浮动引起的内部高度为0的问题
+```
+
+```html
+给父元素设置一个border，内部放两个盒子一个samll 另一个big，位给big和small设置浮动，则他们的会默认撑开父元素
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container {
+            border: 1px solid red;
+        }
+        .small {
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+            // float: left
+        }
+        .large {
+            width: 120px;
+            height: 120px;
+            background-color: burlywood;
+            // float: left
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="small">small</div>
+        <div class="large">large</div>
+    </div>
+</body>
+</html>
+```
+
+```css
+当给内部两个元素（small和large）盒子增加上float属性的时候，下面的盒子会顶上来，然后父元素因为没有设置高度，变成了一条线，big和large已经浮动了。
+```
+
+```css
+总结一下：
+当父元素不给高度的时候， 内部元素不浮动时会撑开， 而浮动的时候，父元素会变成一条线
+```
+
+> clear: both 本质上是闭合浮动，就是让父元素闭合出口和入口，不让盒子出来
+
+#### **2.1 额外标签法（在最后一个浮动标签后，新加一个标签，给其设置clear:both）(不推荐)**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container {
+            border: 1px solid red;
+        }
+        .small {
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+            float: left;
+        }
+        .large {
+            width: 120px;
+            height: 120px;
+            background-color: burlywood;
+            float: left;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="small">small</div>
+        <div class="large">large</div>
+        <div class="clear">额外标签法</div>
+    </div>
+</body>
+</html>
+```
+
+> 如果我们清除了浮动，父元素自动检测子盒子最高的高度，然后与其同高。
+>
+> 优点： 通俗易懂，方便
+>
+> 缺点： 添加无意义的标签，语义化较差  （不建议使用）
+
+#### **2.2 父元素增加overflow属性（父元素添加overflow：hidden）（不推荐）**
+
+```css
+通过BFC方式，实现清除浮动
+.container {
+    overflow: hidden;
+}
+```
+
+> 优点：代码简洁
+>
+> 缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏，无法显示要溢出的元素。 （不推荐使用）
+
+#### **2.3 使用after伪元素清除浮动（推荐使用）**
+
+```html
+.clearfix::after { /**伪元素是行内元素，正常浏览器清除浮动的方法**/
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	*zoom: 1; /***ie6清除浮动的方法 * 号只有IE6-IE7执行，其他浏览器不执行 ***/
+}
+<body>
+    <div class="father clearfix">
+        <div class="big">big</div>
+        <div class="small">small</div>
+    </div>
+    <div class="footer"></div>
+</body>
+```
+
+>优点：符合闭合浮动思想，结构语义化正确
+>
+>缺点： ie6-ie7不支持伪元素，使用zoom：1触发hasLayout。。。 推荐使用
+
+#### **2.4 使用before和after双伪元素清除浮动**
+
+```html
+.clearfix:before,.clearfix::after {
+	content: "";
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+<div class="father clearfix">
+   <div class="big">big</div>
+   <div class="small">small</div>
+</div>
+<div class="footer"></div>
+```
+
+>优点： 代码更加简洁
+>
+>缺点：用zoom：1 触发hasLayout
+
 ### 3. **盒子模型**
 
 ### 4. **Flex布局**
