@@ -1147,7 +1147,23 @@ column-reverse: 起点在下沿
 3. wrap-reverse： 换行，第一行在下方
 ```
 
+##### **4.3.3 flex-flow**
 
+`flex-flow`属性是`flex-direction`属性和`flex-wrap`属性的简写形式，默认值为`row nowrap`;
+
+```css
+.box {
+    flex-flow: < flex-direction> || <flex-wrap>
+}
+```
+
+##### **4.2.4 justify-content属性**
+
+`justify-content`属性定义了项目在主轴上的对齐方式。
+
+```css
+
+```
 
 
 
