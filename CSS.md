@@ -1300,6 +1300,54 @@ align-self:
 
 ### 5. **BFC原理**
 
+#### **5.1 BFC定义**
+
+```css
+BFC(块级格式化上下文)。他是一个独立的渲染区域，只有block-level  box参与，它规定了内部的block-level box如何布局，并且这个区域和外部毫不相干。
+```
+
+**Box：css布局的基本单位**
+
+Box是CSS布局的对象和基本单位。直观来说，就是一个页面是有很多个Box组成的。元素的类型和display属性，决定了这个box的类型。不同类型的box，会参与不同的Formating Context（一个决定如何渲染文档的容器），因此box内的元素会以不同的方式进行渲染。
+
+- block-level box: display 属性为block、lis-item、table的元素，会生成block-level box 。并且参与到block formatiing context。
+- inlin-lebel box：display 属性为inline、inline-block、inline-table的元素，会生成inline-level box。并且参与到inline formatting context
+- run-in box：css3中才有
+
+**Formatting Context**
+
+Formatting  Context是w3c规范中的一个概念。他是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其它元素的关系和相互作用。
+
+```css
+BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒和行盒（行盒有一行中所有的内联元素组成）都会垂直的沿着其父元素的边框排列。
+```
+
+##### **BFC的布局规则**
+
+1. 内部的BOX会在垂直方向，一个接一个的放置。
+2. box垂直方向的距离由margin决定。属于同一个BFC的两个相邻box的margin会发生重叠。
+3. 每个盒子（行快和块盒）的margin box的左边，与包含块border box的左边想接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。
+4. BFC的区域不会与float  box重叠
+5. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。
+6. 计算BFC的高度时，浮动元素也参与计算。
+
+##### **如何创建BFC**
+
+1. float值不是none
+2. position值不是static或者relative
+3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+4. overflow的值不是visible
+
+##### **BFC的作用**
+
+1. 利用BFC避免margin重叠
+2. 自适应两栏布局
+3. 清除浮动
+
+```css
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也是如此。
+```
+
 
 
 ### 6. **position定位**
