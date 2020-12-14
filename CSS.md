@@ -1450,6 +1450,109 @@ position --> m10[定位属性] --> m11(为当前元素选择一种定位模型)
 
 ### 7. **水平垂直居中的几种方式**
 
+- 单行文本的居中
+
+  1. 文字水平居中
+
+     ```html
+     <div class="box" style="text-align: center">hello world</div>
+     ```
+
+  2. 文本垂直水平居中
+
+  ```html
+  <div class="box2" style="width:150px;height:100px;line-height:100px;">
+      文字垂直居中
+  </div>
+  ```
+
+  
+
+- 多行文本的垂直居中
+
+  1. 使用display: flex实现
+
+     flex布局会让容器内的元素得到垂直水平居中
+
+     ```css
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     ```
+
+      
+
+  2. 使用display: -webkit-box实现
+
+     ```css
+     body {
+         width: 100%;
+         height: 100%;
+         display: -webkit-box;
+         -webkit-box-align: center; /**flex弹性布局**/
+         -webkit-box-pack: center;
+     }
+     ```
+
+     display:flex和display：box都可以用于弹性布局水平垂直居中，不同的是display：box是2009年得命名，已经过时，用的时候需要加上前缀；display：flex是2012年后的命名。 
+
+     
+
+  3. 使用绝对定位和负边距
+
+     ```css
+     .box {
+         width: 150px;
+         height: 150px;
+         position: relative;
+     }
+     p {
+         width: 50px;
+         height: 50px;
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         margin-left: -25px;
+         margin-top: -25px;
+     }
+     ```
+
+      
+
+  4. 使用transform: translate实现
+
+     ```css
+     .box {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 50px;
+         height: 50px;
+     }
+     ```
+
+      
+
+  5. 使用绝对定位和0
+
+     ```css 
+     .box  p{
+         
+     }
+     ```
+
+      
+
+     
+
+  6. 通过display： table-cell
+
+
+
+
+
 
 
 ### 8. **CSS优先级权重**
