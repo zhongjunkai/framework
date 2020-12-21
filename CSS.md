@@ -1608,7 +1608,17 @@ position --> m10[定位属性] --> m11(为当前元素选择一种定位模型)
 
 ### 10. **border: none 和 border:0 的区别**
 
+1. 性能差异
 
+   对比border：0和border：none之间的区别在于渲染和没渲染。
+
+   border：0 - 把css中border设为0虽然在页面上看不见，但按照border默认值理解，浏览器依然会对border-width、border-color进行渲染，即是已经占用了内存的值。
+
+   border:none - 吧css中的border设置为none时即没有，浏览器解析none时将不会做出渲染，既不会消耗内存。
+
+2. 兼容性差异
+
+   border:none在ie7还会出现
 
 ### 11. **diaplay: none / visibility   hidden / opacity:0 的区别**
 
