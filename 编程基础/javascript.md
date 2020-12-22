@@ -2,6 +2,48 @@
 
 ## 1. 内置对象
 
+### JS的对象分为内置对象和自定义对象
+
+### 1.1 顶层函数（全局函数）
+
+| 返回值类型 | 函数名称                   | 说明 |
+| ---------- | -------------------------- | ---- |
+| String     | decodeURI(String)          |      |
+| String     | decodeURIComponent(String) |      |
+| String     |                            |      |
+| String     |                            |      |
+| String     |                            |      |
+| String     |                            |      |
+| String     |                            |      |
+| boolean    |                            |      |
+| boolean    |                            |      |
+| int        |                            |      |
+| flaot      |                            |      |
+| int        |                            |      |
+| String     |                            |      |
+
+
+
+### 1.2 JS内置对象String
+
+
+
+### 1.3 JS内置对象Date
+
+
+
+### 1.4 JS内置对象Math
+
+
+
+### 1.5 JS内置对象Array
+
+
+
+### 1.6 JS内置对象RegExp正则表达式
+
+
+
 
 
 
