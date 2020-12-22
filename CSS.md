@@ -1300,7 +1300,60 @@ align-self:
 
 ### 5. **BFC原理**
 
+<<<<<<< Updated upstream
 #### **5.1 BFC定义**
+=======
+#### **BFC(块级格式化上下文)**
+
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也是如此。包括浮动、和外边框合并等。
+
+**`display`属性为`block` `list-item` `table` 的元素，会产生BFC。**
+
+给这些元素添加如下属性就会触发BFC.
+
+- float属性不为 none
+- position 为absolute或者fixed
+- display为inline-block、table-cell、table-caption、flex 、inline-flex
+- overflow不为visible
+
+**BFC布局规则特性：**
+
+1.在BFC中，盒子从顶端开始垂直地一个接一个地排列.
+
+2.盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠
+
+3.在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。
+
+1. BFC的区域不会与浮动盒子产生交集，而是紧贴浮动边缘。
+2. 计算BFC的高度时，自然也会检测浮动或者定位的盒子高度。
+
+它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+
+#### **BFC的主要用途**
+
+BFC能用来做什么？
+
+1.  清除元素内部的浮动
+
+   只要把父元素设置为BFC就可以清理子元素的浮动，最常见的用法就是在父元素上设置overflow: hidden样式，对于IE6加上zoom：1就可以了。
+
+2. 解决外边框合并问题
+
+   ```css
+   盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠。
+   ```
+
+   属于同一个BFC的两个相邻盒子的margin会发生重叠，那么我们创建不属于同一个BFC，就不会发生重叠了。
+
+3. 制作右侧自适应的盒子问题
+
+> 普通流体元素BFC后，为了和浮动元素不产生任何交集，顺着浮动边缘形成自己的封闭上下文
+
+#### **总结**
+
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。包括浮动，和外边距合并等等，因此，有了这个特性，我们布局的时候就不会出现意外情况了
+
+>>>>>>> Stashed changes
 
 ```css
 BFC(块级格式化上下文)。他是一个独立的渲染区域，只有block-level  box参与，它规定了内部的block-level box如何布局，并且这个区域和外部毫不相干。
@@ -1544,6 +1597,7 @@ position --> m10[定位属性] --> m11(为当前元素选择一种定位模型)
      .box  p{
        
      }
+     ```
    ```
   
     
@@ -1551,6 +1605,7 @@ position --> m10[定位属性] --> m11(为当前元素选择一种定位模型)
   6. 通过display： table-cell
   
      table-cell实现水平垂直居中。table-cell  middle  center 结合使用。垂直居中的如果市div等块级元素，需要设置display：inline-block；
+   ```
 
 
 
@@ -1621,6 +1676,50 @@ position --> m10[定位属性] --> m11(为当前元素选择一种定位模型)
    border:none在ie7还会出现
 
 ### 11. **diaplay: none / visibility   hidden / opacity:0 的区别**
+
+1. visibility具有继承性，给父元素设置visibility:hidden；子元素也会继承这个属性。但是如果重新给子元素设置visibility:visible，则子元素又会显示出来。这个和display:none有本质的区别。
+2. visibility：hidden不会影响计数器的计数。
+3. css3的transition支持
+
+
+
+#### **display:none**
+
+1. 浏览器不会生成属性为display：none的元素
+2. display：none不占空间（毕竟不渲染），所以动态改变此属性会引起重排。
+3. display：none不会被子元素继承，子元素也不会显示出来。
+4. transition对其无效。
+
+
+
+#### **visibility:hidden**
+
+1. 元素会被隐藏，但是不会消失，依然占据空间。
+2. visibility：hidden会被子元素继承，子元素可以设置visibility:visible来显示。
+3. visibility：hidden不会触发该元素已经绑定的事件。
+4. visibility：hidden动态修改此属性会引起重汇。
+5. visibility，transition对其无效。
+
+
+
+#### **opacity=0**
+
+1. opacity=0只是透明度为100%，元素隐藏，依然占据空间。
+2. opacity=0会被子元素继承,且，子元素并不能通过opacity=1，进行反隐藏。不能
+3. opacity=0的元素依然能触发已经绑定的事件
+4. opacity,transition对她有效(毫无争议)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
