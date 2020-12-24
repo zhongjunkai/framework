@@ -6,33 +6,145 @@
 
 ### 1.1 顶层函数（全局函数）
 
-| 返回值类型 | 函数名称                   | 说明 |
-| ---------- | -------------------------- | ---- |
-| String     | decodeURI(String)          |      |
-| String     | decodeURIComponent(String) |      |
-| String     |                            |      |
-| String     |                            |      |
-| String     |                            |      |
-| String     |                            |      |
-| String     |                            |      |
-| boolean    |                            |      |
-| boolean    |                            |      |
-| int        |                            |      |
-| flaot      |                            |      |
-| int        |                            |      |
-| String     |                            |      |
+| 返回值类型 | 函数名称                   | 说明                                                         |
+| ---------- | -------------------------- | ------------------------------------------------------------ |
+| String     | decodeURI(String)          | 解码某个编码的URI                                            |
+| String     | decodeURIComponent(String) | 解码一个编码的URI组件                                        |
+| String     | encodeURI(String)          | 把字符串编码为URI                                            |
+| String     | encodeURIComponent(String) | 把字符串编码为URI组件                                        |
+| String     | escape(String)             | 对字符串进行编码                                             |
+| String     | unescape(String)           | 对由escape()编码的字符串进行解码                             |
+| String     | eval(String)               | 计算js字符串，并将其作为脚本执行                             |
+| boolean    | isFinite(value)            | 检查某个值是否是无穷大的数，是则返回true，不是则返回false    |
+| boolean    | isNaN(value)               | 检查某个值是否是非数字，是数字返回false，否则返回true        |
+| int        | Number(Object)             | 把对象的值转换成数字，Boolean的false为0，true为1；字符串需要连续的数字，否则返回false；如果是Date对象，那么返回1970年1月1日到今天的毫秒数 |
+| flaot      | parseFloat(String)         | 解析字符串并返回一个浮点数，该函数指定字符串中的首个字符是否是数字。如果是就对字符串进行解析，直达字符串的末端为止，然后返回该数字，而不是作为字符串。如"34 56"和"34good"的返回值都是34.如果字符串的第一个字符不能被转换成数字，那么parseFloat()会返回NaN |
+| int        | parseInt(String, radix)    | 解析一个字符串并返回一个整数。当参数radix的值为0，或没有设置该值时，parseInt会根据字符串来判断数字的基数。0x-十六进制； 0-八进制； 1~9-十进制 |
+| String     | String(Object)             | 把对象的值转换为字符串，与字符串对象的toString()方法值一样   |
 
 
 
-### 1.2 JS内置对象String
+### 1.2 JS内置对象Date
+
+描述： 创建Date实例用来处理日期和时间。Date对象基于1970年1月1日起的毫秒数。
+
+```js
+var now = new Date();
+console.log(now.valueOf()); // 获取距1970年1月1日的毫秒数
+// Date构造函数的参数
+1. new Date(1498099000356)
+2. 日期格式字符串 new Date("2020-12-1");
+3. 年月日 new Date(2020,12,1)
+```
+
+获取日期的毫秒格式：
+
+```js
+var now = new Date();
+console.log(now.valueOf());
+
+var now = Date.now();
+
+var now = +new Date();
+```
+
+日期格式化方法：
+
+```js
+toString() // 转换成字符串
+valueOf() // 获取毫秒数
+// 下面格式化日期的方法，在不同的浏览器可能变现不一致，一般不用
+toDateString()
+toTimeString()
+toLocaleDateString()
+toLocaleTimeString()
+```
+
+获取日期指定部分
+
+```js
+
+```
 
 
 
-### 1.3 JS内置对象Date
+
+
+
+
+### 1.3 JS内置对象String
+
+**字符串不可变：**
+
+```javascript
+var str = "abc";
+str = "hello";
+// 当重新给str赋值的时候，常量"abc"并不会被修改，依然还在内存里。
+// 重新给字符串赋值，会重新再内存中开辟空间，这个特点就是字符串的不可变
+// 由于字符串不可变，在大量拼接字符串的时候会有效率问题
+```
+
+**创建字符串对象：**
+
+```js
+var str = new String("hello world");
+console.log(str.length); // 获取字符串的个数
+```
+
+**注意：字符串的所有方法，都不会修改字符串本身（字符串时不可变的），操作完成后会返回一个新的字符串**
+
+```javascript
+// 1. 字符串方法
+charAt() // 获取指定位置出的字符
+charCodeAt() // 获取指定位置处字符的ASCII编码
+str[0]  // html5、IE8+支持  和  charAt()等效
+
+// 2. 字符串操作方法
+concat() // 拼接字符串，等效于+
+slice() // 从start未知开始，截取到end位置
+substring() // 从start未知开始，截取到end位置
+substr() // 从start位置开始，截取length个字符
+
+// 3. 位置方法
+indexOf() // 返回指定内容在元字符串中的位置
+lastIndexOf() // 从后往前找，执照第一个匹配上的位置
+
+// 4. 去除空白
+trim() // 只能取出字符串前后的空白
+
+// 5. 大小写转换方法
+to(Locale)UpperCase() // 转换成大写
+to(Locale)LowerCase() // 转换成小写
+
+// 6. 其他
+search() 
+replace()
+split()
+formCharCode() // String.fromCharCode(101,102,103) 将ASCII码转换成字符串
+```
 
 
 
 ### 1.4 JS内置对象Math
+
+Math对象不是构造函数，它具有数学常用函数的属性和方法，都是以静态成员的方式提供数学相关的运算。
+
+```javascript
+Math.PI // 圆周率
+Math.random() // 生成随机数
+Math.floor() // 向上取整/向下取整
+Math.round() // 取整，四舍五入
+Math.abs() // 绝对值
+Math.max()  Math.min() // 最大值/最小值
+math.sin()  Math.cos() // 正弦/ 余弦
+Math.power() Math.sqrt() // 求指数次幂 / 求i平方根
+```
+
+随机生成颜色
+
+```js
+rgb(Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255))
+```
 
 
 
