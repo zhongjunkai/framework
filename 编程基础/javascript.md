@@ -63,10 +63,27 @@ toLocaleTimeString()
 获取日期指定部分
 
 ```js
-
+1. getFullYear() // 返回四位数的年份
+2. getMonth() // 返回日期中的月份，返回值0-11
+3. getDate() // 返回月份中的天数
+4. getDay() // 返回星期，返回值0-6
+5. getHours() // 返回小时
+6. getMinutes() // 返回分钟
+7. getSeconds() // 返回秒
+8. getTime() // 返回表示日期的毫秒数
 ```
 
+设置年月日时间
 
+```js
+1. setFullYear(year) // 设置四位数的年份
+2. setMonth(month) // 设置日期中的月份，从0开始，0表示1月份
+3. setDate(day) // 设置日期
+4. setHours() // 设置小时
+5. setMinutes() // 设置分钟
+6. setSeconds() // 设置秒
+7. setTime() // 以毫秒设置日期，会改变整个日期
+```
 
 
 
@@ -149,6 +166,45 @@ rgb(Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.
 
 
 ### 1.5 JS内置对象Array
+
+数组（Array）是一个有序的数据集合。
+
+1. 数组对象的创建
+
+   ```js
+   var arr1 = new Array();
+   var arr2 = new Array(size);
+   var arr3 = new Array(element1, element2, element3,...);
+   var arr4 = [element1, element2,...];
+   ```
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
