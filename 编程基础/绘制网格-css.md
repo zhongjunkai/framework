@@ -11,6 +11,8 @@ background-size: 48px 48px,48px 48px,16px 16px,16px 16px;
 
 
 
+* 绘制标准网格
+
 ```css
 background-image: 
 	linear-gradient(#eee 1px, transparent 0), 
