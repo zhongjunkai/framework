@@ -178,37 +178,89 @@ rgb(Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.
    var arr4 = [element1, element2,...];
    ```
 
-   
 
+2. Array.isArray(对象) --> 判断这个对象是不是数组
 
+```js
+Array.isArray([])
+```
 
+3. Array.concat(数组,数组,数组,.....) 组合成一个新的数组
 
+```js
+var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+console.log(arr1.concat(arr2));
+```
 
+4. Array.every(函数) 
 
+是对数组中每一项运行给定函数，如果该函数对每一项返回true，则返回true。every从第一个开始，一旦有一个不符合条件，则不会继续迭代下去。
 
+5. Array.some(函数) 
 
+是对数组中的每一项运行给定的函数，如果该函数对任一项返回true，则返回true。some一直在找符合条件的值，一旦找到，则不会继续迭代下去。
 
+6. Array.filter(函数) 
 
+返回的是数组中每一个元素都符合条件的元素，组成了一个新的元素。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+7. Array.push()
+8. Array.pop()
+9. Array.shift()
+10. Array.unshift()
+11. Array.forEach()
+12. Array.map()
+13. Array.indexOf()
+14. Array.join("字符串")
+15. Array.reverse()
+16. Array.sort()
+17. Array.slice()
+18. Array.splice()
 
 
 
 ### 1.6 JS内置对象RegExp正则表达式
+
+- 字面量
+
+```js
+var reg = /\d+/g;
+console.log(reg.test("12345")); // true
+```
+
+- 构造函数
+
+```js
+var reg2 = new RegExp("\\d+","g");
+console.log(reg2.test("12345656"));
+```
+
+
+
+#### `修饰符`
+
+- i 忽略大小写模式
+- m 多行模式
+- g 全局模式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
