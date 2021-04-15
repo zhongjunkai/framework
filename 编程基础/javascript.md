@@ -270,11 +270,71 @@ console.log(reg2.test("12345656"));
 
 ## 2. typeof
 
+七种原始类型（基本类型）：Boolean、Null、Undefined、Number、BigInt、String、Symbol和Object。
 
+基本类型是一种既非对象也无方法的数据。多数情况下，基本类型直接就代表了最底层的语言实现。
+
+```js
+var bar = "bar";
+bar[0] = "c";
+console.log(bar[0]); // b
+console.log(bar); // bar
+```
+
+| 类型         | 结果           |
+| ------------ | -------------- |
+| Undefined    | "undefined"    |
+| Null         | "object"       |
+| Boolean      | "boolean"      |
+| Number       | "number"       |
+| BigInt       | "bigint"       |
+| String       | "string"       |
+| Symbol       | "symbol"       |
+| 宿主对象     | 取决于具体实现 |
+| Function对象 | "function"     |
+| 其他任何对象 | "object"       |
+
+```js
+var s_obj = new String("123");
+console.log(typeof s_obj); // object
+console.log(typeof String); // function
+
+// s_obj.__proto__ === String.prototype;
+// String.prototype.__proto__ === Object.prototype;
+Function.prototype.__proto__ === Object.prototype;
+```
 
 
 
 ## 3. instanceof
+
+通常用typeof来判断基本类型；用instanceof来判断引用类型。
+
+**instanceof运算符是用来检测某个实例对象的原型链上是否存在构造函数的prototype属性。**
+
+>注意构造器Function，他是唯一一个prototype和\__proto\__指向相同的对象。注意Object(),他是由function生成的，所以它的\__proto\__属性指向了function的构造器Function的原型Function.prototype.
+
+```js
+console.log(String instanceof String); // false
+console.log(String instanceof Object); // true
+console.log(Object instanceof Object); // true
+console.log(Function instanceof Function); // true
+console.log(Function instanceof Object); // true
+```
+
+```js
+function Foo() {}
+function BFoo() {}
+Foo.prototype = new BFoo();
+console.log(Foo instanceof Function); // true
+console.log(Foo instanceof Foo); // false
+```
+
+
+
+
+
+
 
 
 
